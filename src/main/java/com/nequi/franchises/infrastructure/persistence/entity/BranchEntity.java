@@ -3,8 +3,6 @@ package com.nequi.franchises.infrastructure.persistence.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -27,4 +25,3 @@ public class BranchEntity {
     @JoinColumn(name = "franchise_id", nullable = false)
     private FranchiseEntity franchise;
 }
-

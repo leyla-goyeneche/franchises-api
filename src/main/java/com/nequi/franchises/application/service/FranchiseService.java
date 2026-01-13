@@ -61,6 +61,7 @@ public class FranchiseService {
                                 ))
                                 .stream()
                 )
-                .collect(Collectors.toList());
+                .collect(java.util.stream.Collectors.toList());
+
     }
 }
