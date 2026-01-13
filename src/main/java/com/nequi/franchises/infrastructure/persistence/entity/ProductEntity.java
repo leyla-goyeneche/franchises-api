@@ -28,4 +28,3 @@ public class ProductEntity {
     @JoinColumn(name = "branch_id", nullable = false)
     private BranchEntity branch;
 }
-
