@@ -106,6 +106,26 @@ PATCH /api/v1/products/{productId}/stock → Actualizar stock
 
 PATCH /api/v1/products/{productId} → Renombrar producto (plus)
 
+## ✅ Quick test (PowerShell)
+
+```powershell
+# 1) Crear franquicia
+Invoke-RestMethod -Method Post -Uri "http://localhost:8080/api/v1/franchises" -ContentType "application/json" -Body '{"name":"Franquicia 1"}'
+
+# 2) Crear sucursal (reemplazar FRANCHISE_ID)
+Invoke-RestMethod -Method Post -Uri "http://localhost:8080/api/v1/franchises/{FRANCHISE_ID}/branches" -ContentType "application/json" -Body '{"name":"Sucursal A"}'
+
+# 3) Crear producto (reemplazar BRANCH_ID)
+Invoke-RestMethod -Method Post -Uri "http://localhost:8080/api/v1/branches/{BRANCH_ID}/products" -ContentType "application/json" -Body '{"name":"Producto X","stock":10}'
+
+# 4) Actualizar stock (reemplazar PRODUCT_ID)
+Invoke-RestMethod -Method Patch -Uri "http://localhost:8080/api/v1/products/{PRODUCT_ID}/stock" -ContentType "application/json" -Body '{"stock":25}'
+
+# 5) Max stock por sucursal (reemplazar FRANCHISE_ID)
+Invoke-RestMethod -Method Get -Uri "http://localhost:8080/api/v1/franchises/{FRANCHISE_ID}/max-stock-products"
+
+
+
 
 
 👤 Autor
